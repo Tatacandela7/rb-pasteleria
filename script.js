@@ -207,3 +207,37 @@ botonFinalizar.addEventListener("click", () => {
     window.open(url, "_blank");
 
 });
+
+
+ // FILTRAR PRODUCTOS POR CATEGORIA
+
+const categorias = document.querySelectorAll(".tarjeta-categoria");
+const productos = document.querySelectorAll(".tarjeta-producto");
+
+categorias.forEach((categoria) => {
+
+    categoria.addEventListener("click", () => {
+
+        const categoriaElegida = categoria.dataset.categoria;
+
+        productos.forEach((producto) => {
+
+            if (producto.dataset.categoria === categoriaElegida) {
+                producto.style.display = "block";
+            } else {
+                producto.style.display = "none";
+            }
+
+        });
+
+        const titulo = document.querySelector(
+            "#productos .titulo-seccion h2"
+        );
+
+        titulo.textContent =
+            categoria.querySelector("h3").textContent;
+
+    });
+
+});
+
