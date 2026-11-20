@@ -570,6 +570,19 @@ body {
     transition: transform 0.3s;
 }
 
+
+.enlace-contacto {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.enlace-contacto:hover {
+    transform: translateY(-5px);
+}
+
+
 .contacto-item:hover {
     transform: translateY(-5px);
 }
