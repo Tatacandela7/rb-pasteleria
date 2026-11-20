@@ -17,38 +17,46 @@
     <!-- ENCABEZADO -->
     <header class="encabezado">
 
-      <div class="logo">
-    <img src="D29D163F-93A7-44F3-962C-110662CC5FA1.png" alt="RB Pastelería Artesanal - Hecho con Amor">
-</div>
+        <div class="logo">
+            <img
+                src="D29D163F-93A7-44F3-962C-110662CC5FA1.png"
+                alt="RB Pastelería Artesanal - Hecho con Amor"
+            >
+        </div>
 
         <div class="marca">
             <p>Pastelería artesanal</p>
         </div>
 
         <div class="acciones">
-            <button class="boton-icono" aria-label="Buscar">🔍</button>
-            <button class="boton-icono" aria-label="Ver carrito">🛒</button>
+            <a href="#carrito" class="boton-icono" aria-label="Ver carrito">
+                🛒
+            </a>
         </div>
 
     </header>
+
 
     <!-- MENU DE NAVEGACION -->
     <nav class="menu">
 
         <a href="#inicio">Inicio</a>
         <a href="#catalogo">Catálogo</a>
-        <a href="#tortas">Tortas</a>
-        <a href="#tartas">Tartas</a>
+        <a href="#productos">Tortas</a>
+        <a href="#productos">Tartas</a>
         <a href="#contacto">Contacto</a>
 
     </nav>
+
 
     <!-- PORTADA PRINCIPAL -->
     <section class="portada" id="inicio">
 
         <div class="portada-contenido">
 
-            <p class="portada-frase">Dulces momentos, hechos con amor</p>
+            <p class="portada-frase">
+                Dulces momentos, hechos con amor
+            </p>
 
             <h2>Un detalle dulce para cada ocasión</h2>
 
@@ -64,253 +72,366 @@
         </div>
 
         <div class="portada-imagen">
-    <img src="a2fcda27-2666-4fdc-b0ad-c5ed1cbc409c.jpeg" alt="Pastelería artesanal RB">
-</div>
+            <img
+                src="a2fcda27-2666-4fdc-b0ad-c5ed1cbc409c.jpeg"
+                alt="Pastelería artesanal RB"
+            >
+        </div>
 
     </section>
 
+
     <!-- CATEGORIAS -->
-    
-<section class="categorias" id="catalogo">
+    <section class="categorias" id="catalogo">
 
-    <div class="titulo-seccion">
-        <p>Descubrí nuestras delicias</p>
-        <h2>Nuestras especialidades</h2>
-    </div>
-
-    <div class="contenedor-categorias">
-
-        <a href="#productos" class="tarjeta-categoria" data-categoria="tortas">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600" alt="Tortas personalizadas">
-            <h3>Tortas personalizadas</h3>
-            <p>Diseños especiales para tus momentos únicos.</p>
-        </a>
-
-        <a href="#productos" class="tarjeta-categoria" data-categoria="tartas">
-            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600" alt="Tartas dulces">
-            <h3>Tartas dulces</h3>
-            <p>Sabores deliciosos elaborados artesanalmente.</p>
-        </a>
-
-        <a href="#productos" class="tarjeta-categoria" data-categoria="postres">
-            <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600" alt="Postres shots">
-            <h3>Postres shots</h3>
-            <p>Pequeños placeres para disfrutar.</p>
-        </a>
-
-        <a href="#productos" class="tarjeta-categoria" data-categoria="cupcakes">
-            <img src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?w=600" alt="Cupcakes">
-            <h3>Cupcakes</h3>
-            <p>Pequeñas creaciones llenas de dulzura.</p>
-        </a>
-
-    </div>
-
-</section>
-
-
-    <!-- PRODUCTOS DESTACADOS -->
-    
-<section class="productos" id="productos">
-
-    <div class="titulo-seccion">
-        <p>Preparados artesanalmente</p>
-        <h2>Nuestros productos</h2>
-    </div>
-
-    <div class="contenedor-productos">
-
-        <div class="tarjeta-producto" data-categoria="tortas">
-
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600" alt="Torta de chocolate">
-
-            <div class="producto-info">
-                <h3>Torta de chocolate</h3>
-                <p>Deliciosa torta con decoración artesanal.</p>
-                <button class="boton-ver-producto" data-producto="torta-chocolate">
-    Ver producto
-</button>
-
-                <label for="tamano-torta">Elegí el tamaño:</label>
-
-                <select id="tamano-torta" class="selector-producto">
-                    <option value="18000">Chica - $18.000</option>
-                    <option value="25000">Mediana - $25.000</option>
-                    <option value="35000">Grande - $35.000</option>
-                </select>
-
-                <span class="precio">$18.000</span>
-                <button class="boton-carrito">Agregar al carrito</button>
-            </div>
-
+        <div class="titulo-seccion">
+            <p>Descubrí nuestras delicias</p>
+            <h2>Nuestras especialidades</h2>
         </div>
 
-        <div class="tarjeta-producto" data-categoria="tartas">
-            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600" alt="Tarta de frutas">
+        <div class="contenedor-categorias">
 
-            <div class="producto-info">
-                <h3>Tarta de frutas</h3>
-                <p>Base crocante con crema y frutas frescas.</p>
-                <span class="precio">$12.000</span>
-                <button class="boton-carrito">Agregar al carrito</button>
-            </div>
-        </div>
+            <a
+                href="#productos"
+                class="tarjeta-categoria"
+                data-categoria="tortas"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
+                    alt="Tortas personalizadas"
+                >
+                <h3>Tortas personalizadas</h3>
+                <p>Diseños especiales para tus momentos únicos.</p>
+            </a>
 
-        <div class="tarjeta-producto" data-categoria="postres">
-            <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600" alt="Postres shots">
+            <a
+                href="#productos"
+                class="tarjeta-categoria"
+                data-categoria="tartas"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600"
+                    alt="Tartas dulces"
+                >
+                <h3>Tartas dulces</h3>
+                <p>Sabores deliciosos elaborados artesanalmente.</p>
+            </a>
 
-            <div class="producto-info">
+            <a
+                href="#productos"
+                class="tarjeta-categoria"
+                data-categoria="postres"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600"
+                    alt="Postres shots"
+                >
                 <h3>Postres shots</h3>
-                <p>Pequeños postres ideales para compartir.</p>
-                <span class="precio">$3.500</span>
-                <button class="boton-carrito">Agregar al carrito</button>
+                <p>Pequeños placeres para disfrutar.</p>
+            </a>
+
+            <a
+                href="#productos"
+                class="tarjeta-categoria"
+                data-categoria="cupcakes"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?w=600"
+                    alt="Cupcakes"
+                >
+                <h3>Cupcakes</h3>
+                <p>Pequeñas creaciones llenas de dulzura.</p>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATALOGO DE PRODUCTOS -->
+    <section class="productos" id="productos">
+
+        <div class="titulo-seccion">
+            <p>Preparados artesanalmente</p>
+            <h2>Nuestros productos</h2>
+        </div>
+
+        <div class="contenedor-productos">
+
+            <!-- TORTA DE CHOCOLATE -->
+            <div class="tarjeta-producto" data-categoria="tortas">
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
+                    alt="Torta de chocolate"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Torta de chocolate</h3>
+
+                    <p>
+                        Deliciosa torta con decoración artesanal.
+                    </p>
+
+                    <button
+                        class="boton-ver-producto"
+                        data-producto="torta-chocolate"
+                    >
+                        Ver producto
+                    </button>
+
+                    <button class="boton-carrito">
+                        Agregar al pedido
+                    </button>
+
+                </div>
+
             </div>
+
+
+            <!-- TARTA DE FRUTAS -->
+            <div class="tarjeta-producto" data-categoria="tartas">
+
+                <img
+                    src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600"
+                    alt="Tarta de frutas"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Tarta de frutas</h3>
+
+                    <p>
+                        Base crocante con crema y frutas frescas.
+                    </p>
+
+                    <button class="boton-carrito">
+                        Agregar al pedido
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- POSTRES SHOTS -->
+            <div class="tarjeta-producto" data-categoria="postres">
+
+                <img
+                    src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600"
+                    alt="Postres shots"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Postres shots</h3>
+
+                    <p>
+                        Pequeños postres ideales para compartir.
+                    </p>
+
+                    <button class="boton-carrito">
+                        Agregar al pedido
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CUPCAKES -->
+            <div class="tarjeta-producto" data-categoria="cupcakes">
+
+                <img
+                    src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?w=600"
+                    alt="Cupcakes artesanales"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Cupcakes</h3>
+
+                    <p>
+                        Pequeñas creaciones dulces y artesanales.
+                    </p>
+
+                    <button class="boton-carrito">
+                        Agregar al pedido
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
 
-    </div>
+    </section>
 
-</section>
 
-    
-<!-- FICHA DEL PRODUCTO -->
-<div class="modal-producto" id="detalle-producto" hidden>
+    <!-- FICHA DEL PRODUCTO -->
+    <div class="modal-producto" id="detalle-producto" hidden>
 
-    <div class="detalle-contenido">
+        <div class="detalle-contenido">
 
-        <button class="cerrar-detalle" id="cerrar-detalle">
-            ×
-        </button>
-
-        <h2>Torta de chocolate</h2>
-
-        <p>Una deliciosa torta artesanal para disfrutar en cualquier ocasión.</p>
-
-        <div class="galeria-producto">
-
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800" alt="Torta de chocolate vista principal">
-
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&sat=-20" alt="Torta de chocolate detalle">
-
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&fit=crop" alt="Torta de chocolate decoración">
-
-        </div>
-
-        <p class="indicacion-galeria">
-            Deslizá las fotos hacia los costados para ver más.
-        </p>
-
-        <div class="detalle-opciones">
-
-            <label for="tamano-torta-detalle">
-                Elegí el tamaño:
-            </label>
-
-            <select id="tamano-torta-detalle" class="selector-producto">
-                <option value="18000">Chica - $18.000</option>
-                <option value="25000">Mediana - $25.000</option>
-                <option value="35000">Grande - $35.000</option>
-            </select>
-
-            <p class="precio-detalle">
-                $18.000
-            </p>
-
-            <label for="cantidad-torta">
-                Cantidad:
-            </label>
-
-            <input type="number" id="cantidad-torta" value="1" min="1">
-
-            <button class="boton-detalle-carrito" id="agregar-detalle-carrito">
-             Agregar al carrito
+            <button
+                class="cerrar-detalle"
+                id="cerrar-detalle"
+                aria-label="Cerrar ficha"
+            >
+                ×
             </button>
 
+            <h2>Torta de chocolate</h2>
+
+            <p>
+                Una deliciosa torta artesanal para disfrutar
+                en cualquier ocasión.
+            </p>
+
+            <div class="galeria-producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800"
+                    alt="Torta de chocolate vista principal"
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&sat=-20"
+                    alt="Torta de chocolate detalle"
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&fit=crop"
+                    alt="Torta de chocolate decoración"
+                >
+
+            </div>
+
+            <p class="indicacion-galeria">
+                Deslizá las fotos hacia los costados para ver más.
+            </p>
+
+            <div class="detalle-opciones">
+
+                <a
+                    href="https://wa.me/549XXXXXXXXXX?text=Hola%2C%20quiero%20consultar%20por%20la%20torta%20de%20chocolate."
+                    class="boton-carrito"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Consultar por WhatsApp
+                </a>
+
+            </div>
+
         </div>
 
     </div>
-
-</div>
 
 
     <!-- CARRITO DE COMPRAS -->
     <section class="carrito" id="carrito">
 
         <div class="titulo-seccion">
+
             <p>Tus dulces elegidos</p>
-            <h2>Mi carrito 🛒</h2>
+            <h2>Mi pedido 🛒</h2>
+
         </div>
 
         <div class="carrito-contenido">
 
             <div id="lista-carrito">
+
                 <p class="carrito-vacio">
                     Todavía no agregaste productos.
                 </p>
-            </div>
 
-            <div class="carrito-total">
-                <h3>Total: <span id="total-carrito">$0</span></h3>
             </div>
 
             <button class="boton-pedido" id="finalizar-pedido">
-                Finalizar pedido por WhatsApp
+                Enviar pedido por WhatsApp
             </button>
 
         </div>
 
     </section>
 
+
     <!-- CONTACTO -->
     <section class="contacto" id="contacto">
 
         <div class="titulo-seccion">
+
             <p>Estamos para ayudarte</p>
             <h2>Contactanos</h2>
+
         </div>
 
         <div class="contacto-contenido">
 
             <div class="contacto-item">
+
                 <span>📱</span>
                 <h3>WhatsApp</h3>
                 <p>Consultá por nuestros productos y pedidos.</p>
+
             </div>
 
             <div class="contacto-item">
+
                 <span>📷</span>
                 <h3>Instagram</h3>
                 <p>Seguinos y conocé nuestras creaciones.</p>
                 <p>@hecho_conamor136</p>
+
             </div>
 
             <div class="contacto-item">
+
                 <span>📍</span>
                 <h3>Ubicación</h3>
                 <p>Longchamps, Zona Sur.</p>
+
             </div>
 
         </div>
 
     </section>
 
+
     <!-- PIE DE PAGINA -->
     <footer class="pie-pagina">
 
         <div class="pie-logo">
+
             <h2>RB</h2>
             <p>Pastelería Artesanal</p>
             <span>Hecho con Amor 💗</span>
+
         </div>
 
         <div class="pie-info">
-            <p>Creaciones artesanales para endulzar tus momentos.</p>
+
+            <p>
+                Creaciones artesanales para endulzar tus momentos.
+            </p>
+
             <p>Longchamps, Zona Sur</p>
+
         </div>
 
         <div class="pie-redes">
-            <a href="https://www.instagram.com/hecho_conamor136/" target="_blank">
+
+            <a
+                href="https://www.instagram.com/hecho_conamor136/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 Instagram
             </a>
+
         </div>
 
         <p class="copyright">
@@ -322,3 +443,4 @@
 </body>
 
 </html>
+
