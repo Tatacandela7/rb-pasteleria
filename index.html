@@ -171,6 +171,66 @@
 
 </section>
 
+    
+<!-- FICHA DEL PRODUCTO -->
+<div class="modal-producto" id="detalle-producto" hidden>
+
+    <div class="detalle-contenido">
+
+        <button class="cerrar-detalle" id="cerrar-detalle">
+            ×
+        </button>
+
+        <h2>Torta de chocolate</h2>
+
+        <p>Una deliciosa torta artesanal para disfrutar en cualquier ocasión.</p>
+
+        <div class="galeria-producto">
+
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800" alt="Torta de chocolate vista principal">
+
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&sat=-20" alt="Torta de chocolate detalle">
+
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&fit=crop" alt="Torta de chocolate decoración">
+
+        </div>
+
+        <p class="indicacion-galeria">
+            Deslizá las fotos hacia los costados para ver más.
+        </p>
+
+        <div class="detalle-opciones">
+
+            <label for="tamano-torta-detalle">
+                Elegí el tamaño:
+            </label>
+
+            <select id="tamano-torta-detalle" class="selector-producto">
+                <option value="18000">Chica - $18.000</option>
+                <option value="25000">Mediana - $25.000</option>
+                <option value="35000">Grande - $35.000</option>
+            </select>
+
+            <p class="precio-detalle">
+                $18.000
+            </p>
+
+            <label for="cantidad-torta">
+                Cantidad:
+            </label>
+
+            <input type="number" id="cantidad-torta" value="1" min="1">
+
+            <button class="boton-carrito" id="agregar-detalle-carrito">
+                Agregar al carrito
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
 
     <!-- CARRITO DE COMPRAS -->
     <section class="carrito" id="carrito">
