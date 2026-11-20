@@ -176,7 +176,7 @@ botonFinalizar.addEventListener("click", () => {
     mensaje +=
         "\nQuisiera consultar precios y disponibilidad. ¡Gracias!";
 
-    const telefono = "549XXXXXXXXXX";
+    const telefono = "5491170347149";
 
     const url =
         `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
