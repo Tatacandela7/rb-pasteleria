@@ -660,3 +660,111 @@ body {
     }
 
 }
+
+/* FICHA INDIVIDUAL DEL PRODUCTO */
+
+.modal-producto {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(50, 30, 40, 0.65);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-producto[hidden] {
+    display: none;
+}
+
+.detalle-contenido {
+    position: relative;
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #fff9fc;
+    border-radius: 24px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+.detalle-contenido h2 {
+    color: #a64d79;
+    font-family: Georgia, serif;
+    margin-bottom: 12px;
+}
+
+.cerrar-detalle {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: #fce8f0;
+    color: #a64d79;
+    font-size: 28px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.galeria-producto {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 22px 0 10px;
+    padding-bottom: 10px;
+}
+
+.galeria-producto img {
+    flex: 0 0 85%;
+    width: 85%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 18px;
+    scroll-snap-align: center;
+}
+
+.indicacion-galeria {
+    color: #89536d;
+    font-size: 13px;
+    text-align: center;
+}
+
+.detalle-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.precio-detalle {
+    color: #a64d79;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#cantidad-torta {
+    width: 90px;
+    padding: 10px;
+    border: 1px solid #e8c5d5;
+    border-radius: 10px;
+}
+
+.detalle-opciones .boton-carrito {
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .modal-producto {
+        padding: 10px;
+    }
+
+    .detalle-contenido {
+        margin: 10px auto;
+        padding: 22px 16px;
+    }
+
+    .galeria-producto img {
+        height: 240px;
+    }
+}
