@@ -422,13 +422,16 @@ body {
     cursor: pointer;
 }
 
+
 .galeria-producto {
     display: flex;
-    gap: 12px;
+    gap: 14px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     margin: 22px 0 10px;
-    padding-bottom: 10px;
+    padding: 5px 2px 12px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .galeria-producto img {
@@ -436,9 +439,11 @@ body {
     width: 85%;
     height: 280px;
     object-fit: cover;
-    border-radius: 18px;
+    border-radius: 20px;
     scroll-snap-align: center;
+    box-shadow: 0 5px 15px rgba(120, 70, 95, 0.12);
 }
+
 
 .indicacion-galeria {
     color: #89536d;
