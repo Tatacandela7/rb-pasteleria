@@ -206,9 +206,12 @@
                         Base crocante con crema y frutas frescas.
                     </p>
 
-                    <button class="boton-ver-producto" data-producto="tarta-frutas">
-    Ver producto
-</button>
+                    <button
+                        class="boton-ver-producto"
+                        data-producto="tarta-frutas"
+                    >
+                        Ver producto
+                    </button>
 
                     <button class="boton-carrito">
                         Agregar al pedido
@@ -235,9 +238,12 @@
                         Pequeños postres ideales para compartir.
                     </p>
 
-                    <button class="boton-ver-producto" data-producto="postres-shots">
-    Ver producto
-</button>
+                    <button
+                        class="boton-ver-producto"
+                        data-producto="postres-shots"
+                    >
+                        Ver producto
+                    </button>
 
                     <button class="boton-carrito">
                         Agregar al pedido
@@ -263,9 +269,13 @@
                     <p>
                         Pequeñas creaciones dulces y artesanales.
                     </p>
-                    <button class="boton-ver-producto" data-producto="cupcakes">
-    Ver producto
-</button>
+
+                    <button
+                        class="boton-ver-producto"
+                        data-producto="cupcakes"
+                    >
+                        Ver producto
+                    </button>
 
                     <button class="boton-carrito">
                         Agregar al pedido
@@ -280,7 +290,7 @@
     </section>
 
 
-    <!-- FICHA DEL PRODUCTO -->
+    <!-- FICHA DINAMICA DEL PRODUCTO -->
     <div class="modal-producto" id="detalle-producto" hidden>
 
         <div class="detalle-contenido">
@@ -293,28 +303,28 @@
                 ×
             </button>
 
-            <h2>Torta de chocolate</h2>
+            <h2 id="titulo-detalle"></h2>
 
-            <p>
-                Una deliciosa torta artesanal para disfrutar
-                en cualquier ocasión.
-            </p>
+            <p id="descripcion-detalle"></p>
 
             <div class="galeria-producto">
 
                 <img
-                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800"
-                    alt="Torta de chocolate vista principal"
+                    id="imagen-detalle-1"
+                    src=""
+                    alt="Fotografía del producto"
                 >
 
                 <img
-                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&sat=-20"
-                    alt="Torta de chocolate detalle"
+                    id="imagen-detalle-2"
+                    src=""
+                    alt="Detalle del producto"
                 >
 
                 <img
-                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&fit=crop"
-                    alt="Torta de chocolate decoración"
+                    id="imagen-detalle-3"
+                    src=""
+                    alt="Otra fotografía del producto"
                 >
 
             </div>
@@ -326,8 +336,9 @@
             <div class="detalle-opciones">
 
                 <a
-                    href="https://wa.me/5491170347149?text=Hola%2C%20quiero%20consultar%20por%20la%20torta%20de%20chocolate."
+                    href="#"
                     class="boton-carrito"
+                    id="consultar-whatsapp"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -454,4 +465,3 @@
 </body>
 
 </html>
-
