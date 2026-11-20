@@ -5,7 +5,7 @@ let carrito = [];
 
 // BUSCAMOS LOS ELEMENTOS DEL HTML
 
-const botonesAgregar = document.querySelectorAll(".boton-carrito");
+const botonesAgregar = document.querySelectorAll(".tarjeta-producto .boton-carrito");
 // SELECTOR DE TAMAÑO DE LA TORTA
 
 const selectorTorta = document.getElementById("tamano-torta");
