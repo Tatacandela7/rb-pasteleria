@@ -241,3 +241,27 @@ categorias.forEach((categoria) => {
 
 });
 
+// ABRIR Y CERRAR FICHA DEL PRODUCTO
+
+const botonesVerProducto = document.querySelectorAll(".boton-ver-producto");
+const detalleProducto = document.getElementById("detalle-producto");
+const cerrarDetalle = document.getElementById("cerrar-detalle");
+
+botonesVerProducto.forEach((boton) => {
+    boton.addEventListener("click", () => {
+        detalleProducto.hidden = false;
+        document.body.style.overflow = "hidden";
+    });
+});
+
+cerrarDetalle.addEventListener("click", () => {
+    detalleProducto.hidden = true;
+    document.body.style.overflow = "";
+});
+
+detalleProducto.addEventListener("click", (event) => {
+    if (event.target === detalleProducto) {
+        detalleProducto.hidden = true;
+        document.body.style.overflow = "";
+    }
+});
