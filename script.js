@@ -3,30 +3,20 @@
 
 let carrito = [];
 
-// BUSCAMOS LOS ELEMENTOS DEL HTML
+// ELEMENTOS DEL HTML
 
-const botonesAgregar = document.querySelectorAll(".tarjeta-producto .boton-carrito");
-// SELECTOR DE TAMAÑO DE LA TORTA
+const botonesAgregar = document.querySelectorAll(
+    ".tarjeta-producto .boton-carrito"
+);
 
 const selectorTorta = document.getElementById("tamano-torta");
 
-const precioTorta = document.querySelector(
-    ".tarjeta-producto .precio"
-);
-
-selectorTorta.addEventListener("change", () => {
-
-    const nuevoPrecio = Number(selectorTorta.value);
-
-    precioTorta.textContent =
-        "$" + nuevoPrecio.toLocaleString("es-AR");
-
-});
-
 const listaCarrito = document.getElementById("lista-carrito");
-const totalCarrito = document.getElementById("total-carrito");
 
-// AGREGAR PRODUCTOS
+const botonFinalizar = document.getElementById("finalizar-pedido");
+
+
+// AGREGAR PRODUCTOS DESDE EL CATALOGO
 
 botonesAgregar.forEach((boton) => {
 
@@ -36,49 +26,51 @@ botonesAgregar.forEach((boton) => {
 
         const nombre = tarjeta.querySelector("h3").textContent;
 
-let precio;
-let detalle = "";
+        let detalle = "";
 
-// Si es la torta de chocolate, tomamos el tamaño elegido
+        if (nombre === "Torta de chocolate") {
 
-if (nombre === "Torta de chocolate") {
+            detalle = selectorTorta.options[
+                selectorTorta.selectedIndex
+            ].textContent.split(" - ")[0];
 
-    precio = Number(selectorTorta.value);
-
-    detalle = selectorTorta.options[
-        selectorTorta.selectedIndex
-    ].textContent.split(" - ")[0];
-
-} else {
-
-    const precioTexto = tarjeta.querySelector(".precio").textContent;
-
-    precio = Number(precioTexto.replace(/\D/g, ""));
-
-}
-
-       const productoExistente = carrito.find(
-    (producto) =>
-        producto.nombre === nombre &&
-        producto.detalle === detalle
-);
-
-        if (productoExistente) {
-            productoExistente.cantidad++;
-        } else {
-            carrito.push({
-            nombre: nombre,
-            detalle: detalle,
-         precio: precio,
-         cantidad: 1
-}); 
         }
 
-        actualizarCarrito();
+        agregarProducto(nombre, detalle, 1);
 
     });
 
 });
+
+
+// FUNCION GENERAL PARA AGREGAR PRODUCTOS
+
+function agregarProducto(nombre, detalle, cantidad) {
+
+    const productoExistente = carrito.find(
+        (producto) =>
+            producto.nombre === nombre &&
+            producto.detalle === detalle
+    );
+
+    if (productoExistente) {
+
+        productoExistente.cantidad += cantidad;
+
+    } else {
+
+        carrito.push({
+            nombre: nombre,
+            detalle: detalle,
+            cantidad: cantidad
+        });
+
+    }
+
+    actualizarCarrito();
+
+}
+
 
 // ACTUALIZAR EL CARRITO
 
@@ -86,63 +78,60 @@ function actualizarCarrito() {
 
     listaCarrito.innerHTML = "";
 
-    let total = 0;
-
     if (carrito.length === 0) {
 
         listaCarrito.innerHTML =
             '<p class="carrito-vacio">Todavía no agregaste productos.</p>';
 
+        return;
+
     }
 
     carrito.forEach((producto) => {
 
-        const subtotal = producto.precio * producto.cantidad;
+        listaCarrito.innerHTML += `
+            <div class="producto-carrito">
 
-        total += subtotal;
+                <h3>${producto.nombre}</h3>
 
-        
-listaCarrito.innerHTML += `
-    <div class="producto-carrito">
-        <h3>${producto.nombre}</h3>
-        ${producto.detalle ? `<p>Tamaño: ${producto.detalle}</p>` : ""}
+                ${producto.detalle
+                    ? `<p>Tamaño: ${producto.detalle}</p>`
+                    : ""}
 
-        <p>Subtotal: $${subtotal.toLocaleString("es-AR")}</p>
+                <div class="controles-cantidad">
 
-        <div class="controles-cantidad">
+                    <button onclick="cambiarCantidad('${producto.nombre}', '${producto.detalle}', -1)">
+                        -
+                    </button>
 
-            <button onclick="cambiarCantidad('${producto.nombre}', -1)">
-                -
-            </button>
+                    <span>${producto.cantidad}</span>
 
-            <span>${producto.cantidad}</span>
+                    <button onclick="cambiarCantidad('${producto.nombre}', '${producto.detalle}', 1)">
+                        +
+                    </button>
 
-            <button onclick="cambiarCantidad('${producto.nombre}', 1)">
-                +
-            </button>
+                    <button onclick="eliminarProducto('${producto.nombre}', '${producto.detalle}')">
+                        Eliminar
+                    </button>
 
-            <button onclick="eliminarProducto('${producto.nombre}')">
-                Eliminar
-            </button>
+                </div>
 
-        </div>
-    </div>
-`;
-
+            </div>
+        `;
 
     });
 
-    totalCarrito.textContent =
-        "$" + total.toLocaleString("es-AR");
-
 }
 
-// CAMBIAR LA CANTIDAD DE UN PRODUCTO
 
-function cambiarCantidad(nombre, cambio) {
+// CAMBIAR CANTIDAD
+
+function cambiarCantidad(nombre, detalle, cambio) {
 
     const producto = carrito.find(
-        (producto) => producto.nombre === nombre
+        (producto) =>
+            producto.nombre === nombre &&
+            producto.detalle === detalle
     );
 
     if (producto) {
@@ -150,9 +139,13 @@ function cambiarCantidad(nombre, cambio) {
         producto.cantidad += cambio;
 
         if (producto.cantidad <= 0) {
-            eliminarProducto(nombre);
+
+            eliminarProducto(nombre, detalle);
+
         } else {
+
             actualizarCarrito();
+
         }
 
     }
@@ -160,58 +153,62 @@ function cambiarCantidad(nombre, cambio) {
 }
 
 
-// ELIMINAR UN PRODUCTO
+// ELIMINAR PRODUCTO
 
-function eliminarProducto(nombre) {
+function eliminarProducto(nombre, detalle) {
 
     carrito = carrito.filter(
-        (producto) => producto.nombre !== nombre
+        (producto) =>
+            producto.nombre !== nombre ||
+            producto.detalle !== detalle
     );
 
     actualizarCarrito();
 
 }
 
-// FINALIZAR PEDIDO POR WHATSAPP
 
-const botonFinalizar = document.getElementById("finalizar-pedido");
+// FINALIZAR PEDIDO POR WHATSAPP
 
 botonFinalizar.addEventListener("click", () => {
 
     if (carrito.length === 0) {
+
         alert("Tu carrito está vacío. Agregá algún producto primero.");
+
         return;
+
     }
 
-    let mensaje = "¡Hola! Quiero realizar el siguiente pedido:\n\n";
-
-    let total = 0;
+    let mensaje =
+        "¡Hola! Quiero realizar el siguiente pedido:\n\n";
 
     carrito.forEach((producto) => {
 
-        const subtotal = producto.precio * producto.cantidad;
-
-        total += subtotal;
-        
-        mensaje += `${producto.nombre}${producto.detalle ? " - Tamaño: " + producto.detalle : ""} - Cantidad: ${producto.cantidad} - Subtotal: $${subtotal.toLocaleString("es-AR")}\n`;
-
+        mensaje +=
+            `${producto.nombre}` +
+            `${producto.detalle ? " - Tamaño: " + producto.detalle : ""}` +
+            ` - Cantidad: ${producto.cantidad}\n`;
 
     });
 
-    mensaje += `\nTOTAL: $${total.toLocaleString("es-AR")}`;
+    mensaje +=
+        "\nQuisiera consultar el precio y la disponibilidad. ¡Gracias!";
 
     const telefono = "549XXXXXXXXXX";
 
-    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+    const url =
+        `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 
     window.open(url, "_blank");
 
 });
 
 
- // FILTRAR PRODUCTOS POR CATEGORIA
+// FILTRAR PRODUCTOS POR CATEGORIA
 
 const categorias = document.querySelectorAll(".tarjeta-categoria");
+
 const productos = document.querySelectorAll(".tarjeta-producto");
 
 categorias.forEach((categoria) => {
@@ -223,9 +220,13 @@ categorias.forEach((categoria) => {
         productos.forEach((producto) => {
 
             if (producto.dataset.categoria === categoriaElegida) {
+
                 producto.style.display = "block";
+
             } else {
+
                 producto.style.display = "none";
+
             }
 
         });
@@ -241,27 +242,81 @@ categorias.forEach((categoria) => {
 
 });
 
+
 // ABRIR Y CERRAR FICHA DEL PRODUCTO
 
-const botonesVerProducto = document.querySelectorAll(".boton-ver-producto");
+const botonesVerProducto = document.querySelectorAll(
+    ".boton-ver-producto"
+);
+
 const detalleProducto = document.getElementById("detalle-producto");
+
 const cerrarDetalle = document.getElementById("cerrar-detalle");
 
 botonesVerProducto.forEach((boton) => {
+
     boton.addEventListener("click", () => {
+
         detalleProducto.hidden = false;
+
         document.body.style.overflow = "hidden";
+
     });
+
 });
 
 cerrarDetalle.addEventListener("click", () => {
+
     detalleProducto.hidden = true;
+
     document.body.style.overflow = "";
+
 });
 
 detalleProducto.addEventListener("click", (event) => {
+
     if (event.target === detalleProducto) {
+
         detalleProducto.hidden = true;
+
         document.body.style.overflow = "";
+
     }
+
+});
+
+
+// AGREGAR PRODUCTO DESDE SU FICHA
+
+const selectorTortaDetalle = document.getElementById(
+    "tamano-torta-detalle"
+);
+
+const cantidadTorta = document.getElementById("cantidad-torta");
+
+const agregarDetalleCarrito = document.getElementById(
+    "agregar-detalle-carrito"
+);
+
+agregarDetalleCarrito.addEventListener("click", () => {
+
+    const nombre = "Torta de chocolate";
+
+    const detalle = selectorTortaDetalle.options[
+        selectorTortaDetalle.selectedIndex
+    ].textContent.split(" - ")[0];
+
+    const cantidad = Math.max(
+        1,
+        Number(cantidadTorta.value) || 1
+    );
+
+    agregarProducto(nombre, detalle, cantidad);
+
+    detalleProducto.hidden = true;
+
+    document.body.style.overflow = "";
+
+    cantidadTorta.value = 1;
+
 });
